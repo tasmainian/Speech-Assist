@@ -27,7 +27,7 @@ class KeyboardWidget(GridLayout):
     button_font_size = NumericProperty(int_button_font_size)
 
     Window.size = (int_button_width * 5,
-        int_button_height * 3.5)
+        int_button_height * 4.0)
 
     def calc_error(self, error, calc_entry):
         content = BoxLayout(orientation='vertical')
@@ -65,7 +65,7 @@ class KeyboardWidget(GridLayout):
 		
 	#used to update the text from the quickselect menu
     def updateT(self,text):
-	self.ids.calc_input.text += text	#appends the text to the inputbar
+	    self.ids.calc_input.text += text	#appends the text to the inputbar
 
     def speak(self, *args):
         sentence = self.ids.calc_input.text
