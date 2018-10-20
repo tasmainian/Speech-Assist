@@ -60,7 +60,58 @@
     size_hint: None, None
 
 <KeyboardWidget>:
-    rows: 7
+    rows: 8
+	#action view is used for the top quickselect menu
+    ActionView:
+        use_separator: True
+        ActionPrevious:	
+            title: 'QuickText Menu'
+            with_previous: False
+        ActionGroup:	#grouping for the dropdown menu
+			id: action_group
+            text: 'Greetings' 
+            ActionButton:	#action button within the menu
+                text: 'Hello'
+				on_release: action_group._dropdown.select(root.updateT(self.text))	#on release of the button append to the bar
+            ActionButton:
+                text: 'How are you'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+            ActionButton:
+                text: 'good'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+            ActionButton:
+                text: 'bad'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+        ActionGroup:
+            text: 'What is Christian' 
+            mode: 'spinner'
+            ActionButton:
+                text: 'Amazing'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+            ActionButton:
+                text: 'Awesome'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+            ActionButton:
+                text: 'Insanely cool'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+            ActionButton:
+                text: 'Alright'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+        ActionGroup:
+            text: 'Response' 
+            mode: 'spinner'
+            ActionButton:
+                text: 'Yes'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+            ActionButton:
+                text: 'No'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+            ActionButton:
+                text: 'Maybe'
+				on_release: action_group._dropdown.select(root.updateT(self.text))
+            ActionButton:
+                text: 'Unsure'
+				
 
     RowLayout:
         TextInput:
