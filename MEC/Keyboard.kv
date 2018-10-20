@@ -12,6 +12,13 @@
     width: self.parent.parent.button_width
     height: self.parent.parent.button_height
 
+<LetterButton2@Button>:
+    on_release: self.parent.parent.ids.calc_input.text += self.text
+    size_hint: None, None
+    font_size: self.parent.parent.button_font_size
+    width: self.parent.parent.button_width *3.33333333333
+    height: self.parent.parent.button_height
+
 <ZeroButton@Button>:
     on_release: self.parent.parent.ids.calc_input.text += self.text
     size_hint: None, None
@@ -42,11 +49,18 @@
     height: self.parent.parent.button_height
     background_color: [0, 0, 1, 1]
 
+<SpeakButton@Button>:
+    size_hint: None, None
+    font_size: self.parent.parent.button_font_size
+    width: self.parent.parent.button_width * 10
+    height: self.parent.parent.button_height
+    background_color: [0, 0, 1, 1]
+
 <RowLayout@BoxLayout>:
     size_hint: None, None
 
 <KeyboardWidget>:
-    rows: 6
+    rows: 7
 
     RowLayout:
         TextInput:
@@ -58,7 +72,15 @@
             readonly: True
             multiline: False
 
-    
+
+    RowLayout:
+        LetterButton2:
+            text: '1'
+        LetterButton2:
+            text: '2'
+        LetterButton2:
+            text: '3'
+
     RowLayout:
         LetterButton:
             text: '1'
@@ -153,6 +175,6 @@
             # on_release: self.parent.parent.enter()
 
     RowLayout:
-        SpecialButton:
+        SpeakButton:
             text: 'SPEAK'
             on_release: self.parent.parent.speak()

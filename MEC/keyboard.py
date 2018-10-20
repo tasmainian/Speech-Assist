@@ -27,7 +27,7 @@ class KeyboardWidget(GridLayout):
     button_font_size = NumericProperty(int_button_font_size)
 
     Window.size = (int_button_width * 5,
-        int_button_height * 3)
+        int_button_height * 3.5)
 
     def calc_error(self, error, calc_entry):
         content = BoxLayout(orientation='vertical')
