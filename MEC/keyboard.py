@@ -1,5 +1,5 @@
 import TextToSpeech
-#import TextPredictor
+import TextPredictor
 
 from kivy.app import App
 
@@ -66,6 +66,13 @@ class KeyboardWidget(GridLayout):
     def speak(self, *args):
         sentence = self.ids.calc_input.text
         TextToSpeech.Speak(sentence)
+        
+    def predict(self, *args):
+        word = self.ids.calc_input.text.split()[-1]
+        NextWordArr = TextPredictor.PredictNext(word)
+        self.ids.pred_1.text = NextWordArr[0][0]
+        self.ids.pred_2.text = NextWordArr[1][0]
+        self.ids.pred_3.text = NextWordArr[2][0]
 
     #def enter(self, *args):
 

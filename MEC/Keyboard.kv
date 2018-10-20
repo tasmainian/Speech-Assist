@@ -75,10 +75,13 @@
 
     RowLayout:
         LetterButton2:
+            id: pred_1
             text: '1'
         LetterButton2:
+            id: pred_2
             text: '2'
         LetterButton2:
+            id: pred_3
             text: '3'
 
     RowLayout:
@@ -169,7 +172,7 @@
 
         LetterButton:
             text: ' '
-            on_release:
+            on_release: self.parent.parent.predict()
         SpecialButton:
             text: 'ENTER'
             # on_release: self.parent.parent.enter()
