@@ -1,0 +1,158 @@
+# width: self.parent.parent.button_width
+# The above referencing used in the
+# dynamic classes below follows like this:
+# LetterButton (self), RowLayout (parent),
+# KeyboardWidget (parent), 120 (which is
+# variable 'button_width' in Python code)
+
+<LetterButton@Button>:
+    on_release: self.parent.parent.ids.calc_input.text += self.text
+    size_hint: None, None
+    font_size: self.parent.parent.button_font_size
+    width: self.parent.parent.button_width
+    height: self.parent.parent.button_height
+
+<ZeroButton@Button>:
+    on_release: self.parent.parent.ids.calc_input.text += self.text
+    size_hint: None, None
+    font_size: self.parent.parent.button_font_size
+    width: self.parent.parent.button_width * 2
+    height: self.parent.parent.button_height
+
+<OperatorButton@Button>:
+    on_release: self.parent.parent.ids.calc_input.text += self.text
+    size_hint: None, None
+    font_size: self.parent.parent.button_font_size
+    width: self.parent.parent.button_width
+    height: self.parent.parent.button_height
+
+
+<EqualsButton@Button>:
+    on_release: self.parent.parent.calculate()
+    size_hint: None, None
+    font_size: self.parent.parent.button_font_size
+    width: self.parent.parent.button_width
+    height: self.parent.parent.button_height
+
+
+<SpecialButton@Button>:
+    size_hint: None, None
+    font_size: self.parent.parent.button_font_size
+    width: self.parent.parent.button_width
+    height: self.parent.parent.button_height
+    background_color: [0, 0, 1, 1]
+
+<RowLayout@BoxLayout>:
+    size_hint: None, None
+
+<KeyboardWidget>:
+    rows: 6
+
+    RowLayout:
+        TextInput:
+            id: calc_input
+            font_size: 80
+            size_hint: None, None
+            height: root.button_height * 1.1
+            width: root.button_width * 10
+            readonly: True
+            multiline: False
+
+    
+    RowLayout:
+        LetterButton:
+            text: '1'
+        LetterButton:
+            text: '2'
+        LetterButton:
+            text: '3'
+        LetterButton:
+            text: '4'
+        LetterButton:
+            text: '5'
+        LetterButton:
+            text: '6'
+        LetterButton:
+            text: '7'
+        LetterButton:
+            text: '8'
+        LetterButton:
+            text: '9'
+        LetterButton:
+            text: '0'
+
+    RowLayout:
+        LetterButton:
+            text: 'Q'
+        LetterButton:
+            text: 'W'
+        LetterButton:
+            text: 'E'
+        LetterButton:
+            text: 'R'
+        LetterButton:
+            text: 'T'
+        LetterButton:
+            text: 'Y'
+        LetterButton:
+            text: 'U'
+        LetterButton:
+            text: 'I'
+        LetterButton:
+            text: 'O'
+        LetterButton:
+            text: 'P'
+
+    RowLayout:
+        LetterButton:
+            text: 'A'
+        LetterButton:
+            text: 'S'
+        LetterButton:
+            text: 'D'
+        LetterButton:
+            text: 'F'
+        LetterButton:
+            text: 'G'
+        LetterButton:
+            text: 'H'
+        LetterButton:
+            text: 'J'
+        LetterButton:
+            text: 'K'
+        LetterButton:
+            text: 'L'
+        SpecialButton:
+            text: 'BACKSPACE'
+            on_release: self.parent.parent.delete()
+
+    RowLayout:
+        LetterButton:
+            text: 'Z'
+        LetterButton:
+            text: 'X'
+        LetterButton:
+            text: 'C'
+        LetterButton:
+            text: 'V'
+        LetterButton:
+            text: 'B'
+        LetterButton:
+            text: 'N'
+        LetterButton:
+            text: 'M'
+        SpecialButton:
+            text: 'CLEAR'
+            on_release: self.parent.parent.clear()
+
+        LetterButton:
+            text: ' '
+            on_release:
+        SpecialButton:
+            text: 'ENTER'
+            # on_release: self.parent.parent.enter()
+
+    RowLayout:
+        SpecialButton:
+            text: 'SPEAK'
+            on_release: self.parent.parent.speak()
