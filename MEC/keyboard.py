@@ -64,8 +64,8 @@ class KeyboardWidget(GridLayout):
         self.ids.calc_input.text = ''
 		
 	#used to update the text from the quickselect menu
-	def updateT(self,text):
-		self.ids.calc_input.text += text	#appends the text to the inputbar
+    def updateT(self,text):
+	self.ids.calc_input.text += text	#appends the text to the inputbar
 
     def speak(self, *args):
         sentence = self.ids.calc_input.text
